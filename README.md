@@ -1,40 +1,101 @@
-# 🎬 Neo4j Movie Recommendation System
+# Neo4j Movie Recommendation System
 
-Este repositório contém o desafio de projeto para a criação de um sistema de recomendações de um serviço de streaming utilizando o banco de dados orientado a grafos **Neo4j**. O foco principal é explorar os relacionamentos entre usuários, conteúdos e profissionais do setor.
+Graph-based movie and series recommendation system built with Neo4j and Cypher to explore relationships between users, genres, ratings, and content preferences.
 
-## 📌 Objetivo do Projeto
-Modelar e implementar um grafo de conhecimento que permita conexões poderosas para algoritmos de recomendação, indo além dos sistemas tradicionais.
+---
 
-## 🛠️ Tecnologias Utilizadas
-* **Neo4j Desktop / Sandbox**: Para execução das queries Cypher.
-* **Arrows.app**: Para a modelagem visual do esquema (Diagrama).
-* **Cypher Query Language (CQL)**: Para manipulação dos dados.
+## Overview
 
-## 📐 Modelo de Dados (Diagrama)
-O modelo foi desenhado focando nas seguintes entidades e conexões:
+This project demonstrates how graph databases can be used to create recommendation systems through relationship traversal and connected data analysis.
 
-- **Nós (Nodes):** `User`, `Movie`, `Series`, `Genre`, `Actor`, `Director`.
-- **Relacionamentos (Edges):**
-    - `WATCHED`: Conecta um usuário a um filme/série (contém a propriedade `rating`).
-    - `ACTED_IN`: Conecta atores aos conteúdos.
-    - `DIRECTED`: Conecta diretores aos conteúdos.
-    - `IN_GENRE`: Classifica os conteúdos por gênero.
+Using Neo4j, the application models users, movies, genres, and interactions as graph structures, allowing personalized recommendations based on relationship patterns and similarity analysis.
 
-> Veja o arquivo `modelo.png` para visualizar o esquema gráfico.
+The project focuses on graph-based recommendation techniques and data relationship exploration.
 
-## 🚀 Como Executar
-1. Certifique-se de ter o **Neo4j** instalado ou utilize o **Neo4j Sandbox**.
-2. Execute o script contido no arquivo `script.cypher` para:
-    - Criar as **Constraints** de unicidade para IDs.
-    - Popular o banco com 10 usuários e 10 filmes/séries.
-    - Criar os relacionamentos e avaliações de exemplo.
+---
 
-## 📊 Exemplo de Query de Recomendação
-Para testar o poder do grafo, você pode rodar a query abaixo para sugerir filmes baseados no que outros usuários assistiram:
+## Features
 
-```cypher
-MATCH (u:User)-[:WATCHED]->(m:Movie)<-[:WATCHED]-(outro:User)-[:WATCHED]->(sugestao:Movie)
-WHERE u.id = 1 AND NOT (u)-[:WATCHED]->(sugestao)
-RETURN sugestao.title, count(*) AS forca_recomendacao
-ORDER BY forca_recomendacao DESC
-LIMIT 3
+- Graph-based recommendation engine
+- User and movie relationship modeling
+- Genre-based recommendation logic
+- Cypher queries for recommendation analysis
+- Similarity and relationship traversal
+- Connected data exploration
+
+---
+
+## Technologies
+
+- Neo4j
+- Cypher
+- Graph Databases
+- Recommendation Systems
+- Data Modeling
+
+---
+
+## Architecture
+
+The system uses Neo4j to represent relationships between:
+
+- Users
+- Movies
+- Genres
+- Ratings
+- Preferences
+
+Recommendations are generated through graph traversal and relationship analysis using Cypher queries.
+
+### Main concepts:
+
+- Nodes representing users and movies
+- Relationships representing interactions and preferences
+- Similarity-based recommendation logic
+- Relationship traversal techniques
+- Connected data analytics
+
+This architecture enables efficient exploration of recommendation paths and relationship-based insights.
+
+---
+
+## Recommendation Logic
+
+The recommendation process is based on:
+
+- Shared preferences
+- Genre relationships
+- Similar user behavior
+- Relationship proximity
+- Graph traversal patterns
+
+The graph structure allows efficient discovery of content connections and recommendation opportunities.
+
+---
+
+## Learning Outcomes
+
+Through this project, I improved my knowledge in:
+
+- Recommendation systems
+- Graph databases
+- Neo4j relationship modeling
+- Cypher query development
+- Connected data structures
+- Graph traversal concepts
+
+---
+
+## Future Improvements
+
+- Interactive recommendation dashboard
+- Personalized recommendation scoring
+- Frontend integration
+- Real-time recommendations
+- API-based recommendation service
+
+---
+
+## Author
+
+Maria Eduarda Toso
